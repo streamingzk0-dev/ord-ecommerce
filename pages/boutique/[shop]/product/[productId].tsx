@@ -4,7 +4,7 @@ import Layout from '../../../../components/Layout'
 import { supabase } from '../../../../lib/supabase'
 import { Product, Shop } from '../../../../types'
 import { useUser } from '../../../../lib/useUser'
-import { simulatePayment } from '../../../../lib/stripe'
+import { simulatePayment, PaymentResult } from '../../../../lib/stripe'
 import toast from 'react-hot-toast'
 
 export default function ProductPage() {
@@ -75,7 +75,7 @@ export default function ProductPage() {
 
     try {
       // Simulation de paiement
-      const paymentResult = await simulatePayment(product, user.id)
+      const paymentResult: PaymentResult = await simulatePayment(product, user.id)
 
       if (!paymentResult.success) {
         throw new Error('Échec du paiement simulé')
