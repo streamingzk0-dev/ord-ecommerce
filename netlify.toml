@@ -1,12 +1,16 @@
 [build]
-  command = "npm run build && npm run export"
-  publish = "out"
+  command = "npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Redirections SPA pour le routing client-side
+# Important: Désactiver le plugin Next.js de Netlify pour static export
+[build.processing]
+  skip_processing = true
+
+# Redirections SPA
 [[redirects]]
   from = "/*"
   to = "/index.html"
