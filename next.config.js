@@ -6,9 +6,8 @@ const nextConfig = {
     unoptimized: true,
     domains: ['nxpdrunwfztdokqgcxyy.supabase.co'],
   },
-  env: {
-    CUSTOM_ENV: process.env.CUSTOM_ENV,
-  },
+  skipTrailingSlashRedirect: true,
+  distDir: 'out',
 }
 
 module.exports = nextConfig
