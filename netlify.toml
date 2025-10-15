@@ -1,18 +1,18 @@
-# Configuration de build pour Next.js sur Netlify
 [build]
-  command = "npm run build"
-  publish = ".next"
+  command = "npm run build && npm run export"
+  publish = "out"
 
-# Variables d'environnement
 [build.environment]
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Plugin pour Next.js
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# Redirections SPA pour le routing client-side
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
-# Sécurité HTTP headers
+# Headers de sécurité
 [[headers]]
   for = "/*"
   [headers.values]
