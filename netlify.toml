@@ -1,14 +1,18 @@
+# Configuration de build pour Next.js sur Netlify
 [build]
   command = "npm run build"
   publish = ".next"
 
+# Variables d'environnement
 [build.environment]
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
 
+# Plugin pour Next.js
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Sécurité HTTP headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -16,23 +20,3 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-[[redirects]]
-  from = "/boutique/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/vendor/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/admin/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
