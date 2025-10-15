@@ -1,5 +1,12 @@
+// Types pour les paiements
+export interface PaymentResult {
+  success: boolean;
+  paymentId: string;
+  message: string;
+}
+
 // Simulation de paiement côté client pour Netlify
-export const simulatePayment = async (product: any, customerId: string) => {
+export const simulatePayment = async (product: any, customerId: string): Promise<PaymentResult> => {
   // Simulation d'un paiement réussi
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -13,7 +20,7 @@ export const simulatePayment = async (product: any, customerId: string) => {
 };
 
 // Pour Stripe en production (à configurer plus tard)
-export const createStripeCheckoutSession = async (product: any) => {
+export const createStripeCheckoutSession = async (product: any): Promise<any> => {
   // Placeholder pour l'intégration Stripe future
   console.log('Stripe integration would be here for product:', product.id);
   return null;
