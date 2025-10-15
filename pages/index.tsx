@@ -11,11 +11,21 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchFeaturedContent()
+    // Ne s'exécute que côté client
+    if (typeof window !== 'undefined') {
+      fetchFeaturedContent()
+    } else {
+      setLoading(false)
+    }
   }, [])
 
   const fetchFeaturedContent = async () => {
     try {
+      if (!supabase) {
+        setLoading(false)
+        return
+      }
+
       // Récupérer les boutiques actives
       const { data: shops } = await supabase
         .from('shops')
