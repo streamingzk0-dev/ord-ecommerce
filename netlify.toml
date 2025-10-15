@@ -4,17 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "18"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-# Configuration pour Next.js
-[build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Headers de sécurité
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -23,7 +17,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Redirections pour le routing SPA
 [[redirects]]
   from = "/boutique/*"
   to = "/index.html"
@@ -36,5 +29,10 @@
 
 [[redirects]]
   from = "/admin/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
   to = "/index.html"
   status = 200
