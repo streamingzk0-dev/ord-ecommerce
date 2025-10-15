@@ -1,0 +1,32 @@
+{
+  "name": "ord-ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
+  },
+  "dependencies": {
+    "next": "13.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "crypto-js": "^4.2.0",
+    "react-hot-toast": "^2.4.1",
+    "lucide-react": "^0.292.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.1",
+    "@types/node": "20.8.6",
+    "@types/react": "18.2.28",
+    "typescript": "5.2.2",
+    "eslint": "8.51.0",
+    "eslint-config-next": "13.5.6"
+  }
+}
