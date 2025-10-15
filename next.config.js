@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'standalone',
   trailingSlash: true,
   images: {
     unoptimized: true,
     domains: ['nxpdrunwfztdokqgcxyy.supabase.co'],
   },
-  skipTrailingSlashRedirect: true,
-  distDir: 'out',
+  experimental: {
+    esmExternals: false
+  }
 }
 
 module.exports = nextConfig
