@@ -1,14 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  trailingSlash: true,
+  // Netlify Next.js Runtime gère automatiquement le static/dynamic
   images: {
-    unoptimized: true,
     domains: ['nxpdrunwfztdokqgcxyy.supabase.co'],
   },
-  experimental: {
-    esmExternals: false
-  }
+  // Désactiver le strict mode pour éviter les problèmes de build
+  reactStrictMode: false,
 }
 
 module.exports = nextConfig
